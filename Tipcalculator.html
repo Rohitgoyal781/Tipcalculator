@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding: 0;box-sizing: border-box;
+            font-family: 'Pattaya', sans-serif;
+        }
+        main{
+            height: 100vh;
+            background-image: linear-gradient(to right top,#051937,#004d7a,#0087,#00bf72,#a8eb12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        div{
+            max-width: 500px;height: auto;
+            background-color: #00ceac;
+            padding: 50px;
+            box-shadow: 1px 1px 15px 3px #2d3436;
+        }
+        h1{
+            margin-bottom: 10px;
+            text-shadow: 1px 2px 1px whitesmoke;
+            
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+        input{
+            width: 400px;
+            padding: 10px 0;
+        }
+        button{
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 0.8rem;
+            border: none;
+            color: whitesmoke;
+            background: #024a53;
+            text-transform: uppercase;
+            box-shadow: 1px 1px 5px 1px ;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Tip Calculator</h1>
+        <div>
+            
+            <label>
+                 Bill Amount
+                 
+            </label>
+            <input type="number" name="" id="bill_amount" >
+            <br>
+            <label>
+                Tip Percent
+           </label>
+           
+           <input type="number" name="" id="tip_perc" >
+           <label>
+            Number of People
+            
+       </label>
+       
+       <input type="number" name="" id="Num_ppl"
+        >
+       <br>
+           <br>
+           <label>
+            Tip Amount/person
+       </label>
+       <input type="number" name="" id="tip_amount" disabled>
+       <br>
+       <label>
+        Total Bill/person
+   </label>
+   <input type="number" name="" id="total_bill" disabled>
+   <br>
+   <button onclick="calcu()">Calculate</button>
+            
+  
+        </div>
+    </main>
+    <script>
+        const calcu = () => {
+            //Assigning values to variables
+            let amount= document.getElementById('bill_amount').value;
+            let people=document.getElementById('Num_ppl').value;
+            let Percent= document.getElementById('tip_perc').value;
+            //Calculating Tip
+            let tip= amount*(Percent/100);
+            //Calculating Total
+             let total= tip+Number(amount);
+             //Giving value of tip per person
+            document.getElementById('tip_amount').value=tip/people;
+            //Giving Value of Total Bill 
+            document.getElementById('total_bill').value=total/people;
+
+        }
+    </script>
+</body>
+</html>
